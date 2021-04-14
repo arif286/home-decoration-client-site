@@ -1,0 +1,26 @@
+.top-banner {
+  background-image: url("../../../home-decoration/Image_Icon/Image/banner1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 90px;
+}
+.design h1 {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #1f1632;
+}
+.design p {
+  font-weight: 500;
+  margin-top: 25px;
+  color: #0c0a0abd;
+}
+.design button {
+  background-color: #251d58;
+  color: white;
+  outline: none;
+  border: none;
+  padding: 10px 25px;
+  font-weight: 500;
+  border-radius: 5px;
+  margin-top: 25px;
+}

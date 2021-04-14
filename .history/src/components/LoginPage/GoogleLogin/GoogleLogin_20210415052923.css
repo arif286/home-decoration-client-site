@@ -1,0 +1,16 @@
+.login-btn {
+  display: flex;
+  max-width: 350px;
+  border-radius: 50px;
+  border: 0.5px solid gray;
+  outline: none;
+  margin: auto;
+}
+.login-btn img {
+  width: 30px;
+}
+.login-title {
+  margin: auto;
+  font-weight: 500;
+  padding: 0px 12px;
+}

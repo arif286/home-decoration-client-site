@@ -1,0 +1,35 @@
+.login-form input {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-bottom: 1px solid gray;
+  margin-bottom: 25px;
+  outline: none;
+}
+.submit-btn {
+  border: none;
+  outline: none;
+  padding: 10px 0px;
+  background-color: #251d58;
+  color: white;
+  font-weight: 400;
+}
+
+.login-form {
+  border: 1px solid #837b7b61;
+  padding: 35px;
+}
+.login-form span {
+  text-decoration: underline;
+  color: #251d58;
+  cursor: pointer;
+}
+.reset-password {
+  text-decoration: underline;
+  color: #251d58;
+  font-weight: 500;
+}
+.reset-password:hover {
+  color: #251d58;
+  cursor: pointer;
+}
