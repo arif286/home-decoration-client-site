@@ -1,0 +1,10 @@
+.admin-button {
+  background-color: #251d58;
+  color: white;
+  outline: none;
+  border: none;
+  padding: 10px 25px;
+  font-weight: 500;
+  border-radius: 5px;
+  margin-top: 25px;
+}
