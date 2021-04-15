@@ -1,60 +1,24 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { NavLink, useHistory, useLocation } from "react-router-dom";
-import { UserContext } from "../../../App";
+import { NavLink } from "react-router-dom";
 import NavBar from "../../HomePage/NavBar/NavBar";
 import GoogleLogin from "../GoogleLogin/GoogleLogin";
-import { createUserWithEmailAndPassword, handleGoogleSingIn, initializeLoginFirebase } from "../Login/LoginManager";
+import { initializeLoginFirebase } from "../Login/LoginManager";
 import "./SignUp.css";
 
 const SignUp = () => {
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const [toggle, setToggle] = useState(false);
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit, watch, errors } = useForm();
   const password = useRef({});
   password.current = watch("password", "");
-let history = useHistory();
-let location = useLocation();
-let { from } = location.state || { from: { pathname: "/" } };
+
   initializeLoginFirebase();
   const onSubmit = (data) => {
+    console.log('cllick')
     console.log(data)
-     if (data.firstName) {
-       const { firstName, lastName, email, password } = data;
-       const fullName = `${firstName} ${lastName}`;
-
-       createUserWithEmailAndPassword(email, password, fullName)
-         .then((res) => {
-           handleResponse(res, true);
-         })
-         .catch((error) => {
-           handleResponse(error, false);
-         });
-     }
   };
 
-const handleResponse = (res, redirect) => {
-  setLoggedInUser(res);
-  if (redirect) {
-    history.replace(from);
-  }
-};
-const handleGoogleLogin = () => {
-  handleGoogleSingIn()
-    .then((res) => {
-      setLoggedInUser(res);
-      history.replace(from);
-    })
-    .catch((error) => {
-      setLoggedInUser(error);
-    });
-};
   return (
     <>
       <NavBar />
@@ -123,13 +87,15 @@ const handleGoogleLogin = () => {
                 <h3>Login</h3>
                 <input
                   type="email"
-                  {...register("email", { required: true })}
+                  name="email"
+                  ref={register({ required: true })}
                   placeholder="Email"
                 />
 
                 <input
                   type="password"
-                  {...register("password", { required: true })}
+                  name="password"
+                  ref={register({ required: true })}
                   placeholder="Password"
                 />
 
@@ -168,7 +134,7 @@ const handleGoogleLogin = () => {
           </Col>
         </Row>
         <div className="mt-5 text-center">
-          <GoogleLogin handleGoogleLogin={handleGoogleLogin} />
+          <GoogleLogin />
         </div>
       </Container>
     </>

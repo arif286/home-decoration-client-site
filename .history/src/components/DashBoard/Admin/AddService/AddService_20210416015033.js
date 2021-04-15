@@ -5,36 +5,13 @@ import { useForm } from "react-hook-form";
 import './AddService.css';
 const AddService = () => {
   const [imageURL, setImageURL] = useState(null);
-  const [updateProduct, setUpdateProduct] = useState(false);
    const {
      register,
      handleSubmit,
      watch,
      formState: { errors },
-  } = useForm();
-
-  const onSubmit = async(data,e) => {
-    console.log(data)
-    const eventData = {
-      title: data.title,
-      text: data.description,
-      price: data.price,
-
-    };
-    eventData.image = await imageURL;
-    try {
-      const response = await axios.post('', {
-        headers: { "Content-Type": "application/json" },
-        data: eventData,
-      });
-      e.target.reset();
-      setUpdateProduct(response.data);
-    } catch (error) {
-      console.log(error)
-    }
-
-
-  }
+   } = useForm();
+  const onSubmit = (data) => console.log(data);
 
   const handleImageUpload = async (e) => {
     const imageData = new FormData();
@@ -67,7 +44,7 @@ const AddService = () => {
             <Card className="shadow add-service">
               <label>Service Title</label>
               <input
-                className="form-control"
+                class="form-control"
                 type="text"
                 placeholder="Enter title"
                 {...register("title", {
@@ -76,7 +53,7 @@ const AddService = () => {
               />
               <label>Description</label>
               <input
-                className="form-control"
+                class="form-control"
                 type="text"
                 placeholder="Enter Description"
                 {...register("description", {
@@ -85,18 +62,18 @@ const AddService = () => {
               />
               <label>Service Price</label>
               <input
-                className="form-control"
+                class="form-control"
                 type="number"
                 placeholder="Enter Price"
                 {...register("price", {
                   required: true,
                 })}
               />
-              <label htmlFor="formFile" className="form-label">
+              <label htmlFor="formFile" class="form-label">
                 Image
               </label>
               <input
-                className="form-control"
+                class="form-control"
                 type="file"
                 id="formFile"
                 onChange={handleImageUpload}

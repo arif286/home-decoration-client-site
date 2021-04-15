@@ -3,7 +3,6 @@ import React, { createContext, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import DashBoard from "./components/DashBoard/DashBoard/DashBoard";
 import Home from "./components/HomePage/Home/Home";
-import PrivateRoute from "./components/LoginPage/PrivateRoute/PrivateRoute";
 import SignUp from "./components/LoginPage/SignUp/SignUp";
 
 export const UserContext = createContext();
@@ -17,9 +16,9 @@ function App() {
           <Route path="/home">
             <Home />
           </Route>
-          <PrivateRoute path="/dashBoard">
+          <Route path="/dashBoard">
             <DashBoard />
-          </PrivateRoute>
+          </Route>
           <Route path="/login">
             <SignUp />
           </Route>

@@ -1,15 +1,13 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { NavLink, useHistory, useLocation } from "react-router-dom";
-import { UserContext } from "../../../App";
+import { NavLink } from "react-router-dom";
 import NavBar from "../../HomePage/NavBar/NavBar";
 import GoogleLogin from "../GoogleLogin/GoogleLogin";
-import { createUserWithEmailAndPassword, handleGoogleSingIn, initializeLoginFirebase } from "../Login/LoginManager";
+import { initializeLoginFirebase } from "../Login/LoginManager";
 import "./SignUp.css";
 
 const SignUp = () => {
-  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const [toggle, setToggle] = useState(false);
   const {
     register,
@@ -19,42 +17,13 @@ const SignUp = () => {
   } = useForm();
   const password = useRef({});
   password.current = watch("password", "");
-let history = useHistory();
-let location = useLocation();
-let { from } = location.state || { from: { pathname: "/" } };
+
   initializeLoginFirebase();
   const onSubmit = (data) => {
+    console.log('cllick')
     console.log(data)
-     if (data.firstName) {
-       const { firstName, lastName, email, password } = data;
-       const fullName = `${firstName} ${lastName}`;
-
-       createUserWithEmailAndPassword(email, password, fullName)
-         .then((res) => {
-           handleResponse(res, true);
-         })
-         .catch((error) => {
-           handleResponse(error, false);
-         });
-     }
   };
 
-const handleResponse = (res, redirect) => {
-  setLoggedInUser(res);
-  if (redirect) {
-    history.replace(from);
-  }
-};
-const handleGoogleLogin = () => {
-  handleGoogleSingIn()
-    .then((res) => {
-      setLoggedInUser(res);
-      history.replace(from);
-    })
-    .catch((error) => {
-      setLoggedInUser(error);
-    });
-};
   return (
     <>
       <NavBar />
@@ -99,11 +68,9 @@ const handleGoogleLogin = () => {
                 />
                 {errors.confirmation && <p>{errors.confirmation.message}</p>}
 
-                <input
-                  type="submit"
-                  value="Create an account"
-                  className="w-100 submit-btn"
-                />
+                <button type="submit" className="w-100 submit-btn">
+                  Create an account
+                </button>
                 <p className="text-center mt-4">
                   Already have an account?
                   <span
@@ -125,13 +92,13 @@ const handleGoogleLogin = () => {
                   type="email"
                   {...register("email", { required: true })}
                   placeholder="Email"
-                />
+                  />
 
                 <input
                   type="password"
                   {...register("password", { required: true })}
                   placeholder="Password"
-                />
+                  />
 
                 <div className="d-flex justify-content-between">
                   <div>
@@ -148,11 +115,9 @@ const handleGoogleLogin = () => {
                     Forgot password
                   </NavLink>
                 </div>
-                <input
-                  type="submit"
-                  className="w-100 submit-btn"
-                  value="Login"
-                />
+                <button type="submit" className="w-100 submit-btn">
+                  Login
+                </button>
                 <p className="text-center mt-4">
                   Don't have an account?
                   <span
@@ -168,7 +133,7 @@ const handleGoogleLogin = () => {
           </Col>
         </Row>
         <div className="mt-5 text-center">
-          <GoogleLogin handleGoogleLogin={handleGoogleLogin} />
+          <GoogleLogin />
         </div>
       </Container>
     </>

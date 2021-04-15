@@ -5,7 +5,7 @@ import { NavLink, useHistory, useLocation } from "react-router-dom";
 import { UserContext } from "../../../App";
 import NavBar from "../../HomePage/NavBar/NavBar";
 import GoogleLogin from "../GoogleLogin/GoogleLogin";
-import { createUserWithEmailAndPassword, handleGoogleSingIn, initializeLoginFirebase } from "../Login/LoginManager";
+import { handleGoogleSingIn, initializeLoginFirebase } from "../Login/LoginManager";
 import "./SignUp.css";
 
 const SignUp = () => {
@@ -25,26 +25,7 @@ let { from } = location.state || { from: { pathname: "/" } };
   initializeLoginFirebase();
   const onSubmit = (data) => {
     console.log(data)
-     if (data.firstName) {
-       const { firstName, lastName, email, password } = data;
-       const fullName = `${firstName} ${lastName}`;
-
-       createUserWithEmailAndPassword(email, password, fullName)
-         .then((res) => {
-           handleResponse(res, true);
-         })
-         .catch((error) => {
-           handleResponse(error, false);
-         });
-     }
   };
-
-const handleResponse = (res, redirect) => {
-  setLoggedInUser(res);
-  if (redirect) {
-    history.replace(from);
-  }
-};
 const handleGoogleLogin = () => {
   handleGoogleSingIn()
     .then((res) => {

@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 import './AddService.css';
 const AddService = () => {
   const [imageURL, setImageURL] = useState(null);
-  const [updateProduct, setUpdateProduct] = useState(false);
    const {
      register,
      handleSubmit,
@@ -22,16 +21,14 @@ const AddService = () => {
 
     };
     eventData.image = await imageURL;
-    try {
-      const response = await axios.post('', {
+     try {
+      const response = await axios.post(url, {
         headers: { "Content-Type": "application/json" },
         data: eventData,
       });
       e.target.reset();
       setUpdateProduct(response.data);
     } catch (error) {
-      console.log(error)
-    }
 
 
   }
@@ -67,7 +64,7 @@ const AddService = () => {
             <Card className="shadow add-service">
               <label>Service Title</label>
               <input
-                className="form-control"
+                class="form-control"
                 type="text"
                 placeholder="Enter title"
                 {...register("title", {

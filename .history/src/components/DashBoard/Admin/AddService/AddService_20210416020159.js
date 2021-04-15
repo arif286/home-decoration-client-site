@@ -67,7 +67,7 @@ const AddService = () => {
             <Card className="shadow add-service">
               <label>Service Title</label>
               <input
-                className="form-control"
+                class="form-control"
                 type="text"
                 placeholder="Enter title"
                 {...register("title", {

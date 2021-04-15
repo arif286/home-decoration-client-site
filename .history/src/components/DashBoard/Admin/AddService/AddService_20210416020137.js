@@ -23,7 +23,7 @@ const AddService = () => {
     };
     eventData.image = await imageURL;
     try {
-      const response = await axios.post('', {
+      const response = await axios.post(url, {
         headers: { "Content-Type": "application/json" },
         data: eventData,
       });
@@ -67,7 +67,7 @@ const AddService = () => {
             <Card className="shadow add-service">
               <label>Service Title</label>
               <input
-                className="form-control"
+                class="form-control"
                 type="text"
                 placeholder="Enter title"
                 {...register("title", {
