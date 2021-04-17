@@ -13,7 +13,7 @@ const OrderListTable = ({ orderList }) => {
         console.log(id);
         try {
             const res = await axios.patch(
-              `http://localhost:5000/updateStatus/${id}`,updateService);
+              `https://interior-design-service.herokuapp.com/updateStatus/${id}`,updateService);
             console.log(res.data)
         } catch (error) {
             console.log(error)

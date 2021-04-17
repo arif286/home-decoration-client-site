@@ -10,7 +10,7 @@ const BookingList = () => {
         const decodedToken = jwt_decode(token);
         // console.log(decodedToken)
         axios
-          .post("http://localhost:5000/orderList", {
+          .post("https://interior-design-service.herokuapp.com/orderList", {
             email: decodedToken.email,
           })
           .then((res) => setOrderList(res.data))

@@ -22,7 +22,7 @@ const AddService = () => {
     };
     eventData.image = await imageURL;
     try {
-      const response = await axios.post("http://localhost:5000/addService", eventData);
+      const response = await axios.post("https://interior-design-service.herokuapp.com/addService", eventData);
       e.target.reset();
       setUpdateProduct(response.data);
     } catch (error) {

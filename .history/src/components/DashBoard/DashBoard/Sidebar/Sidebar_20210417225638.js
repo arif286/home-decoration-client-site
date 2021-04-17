@@ -5,10 +5,10 @@ import jwt_decode from "jwt-decode";
 import React, { useContext, useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
 import {
-  BrowserRouter as Router,
-  NavLink,
-  Route,
-  Switch
+    BrowserRouter as Router,
+    NavLink,
+    Route,
+    Switch
 } from "react-router-dom";
 import { UserContext } from "../../../../App";
 import AddService from "../../Admin/AddService/AddService";
@@ -63,7 +63,7 @@ const Sidebar = () => {
     const decodedToken = jwt_decode(token);
     const emailInfo = { email: loggedInUser.email || decodedToken.email};
     axios
-      .post("http://localhost:5000/isAdmin", emailInfo)
+      .post("https://interior-design-service.herokuapp.com/isAdmin", emailInfo)
       .then((res) => setIsAdmin(res.data))
       .catch((err) => console.log(err));
   }, [loggedInUser.email]);

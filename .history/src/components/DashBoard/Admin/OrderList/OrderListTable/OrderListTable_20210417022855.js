@@ -5,7 +5,7 @@ const OrderListTable = ({orderList}) => {
 console.log(orderList);
     const handleChange = (e) => {
         console.log(e.target.value)
-        axios.patch("/http://localhost:5000/updateStatus");
+        axios.patch("/https://interior-design-service.herokuapp.com/updateStatus");
     }
   return (
     <table className="table table-borderless">

@@ -4,10 +4,10 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
 import {
-  BrowserRouter as Router,
-  NavLink,
-  Route,
-  Switch
+    BrowserRouter as Router,
+    NavLink,
+    Route,
+    Switch
 } from "react-router-dom";
 import { UserContext } from "../../../../App";
 import Home from "../../../HomePage/Home/Home";
@@ -64,7 +64,7 @@ const Sidebar = () => {
   useEffect(() => {
     const emailInfo = { email: loggedInUser.email };
     axios
-      .post("http://localhost:5000/isAdmin", emailInfo)
+      .post("https://interior-design-service.herokuapp.com/isAdmin", emailInfo)
       .then((res) => setIsAdmin(res.data))
       .catch((err) => console.log(err));
   }, [loggedInUser.email]);

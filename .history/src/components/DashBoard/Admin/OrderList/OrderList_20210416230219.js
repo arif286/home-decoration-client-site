@@ -7,7 +7,7 @@ import OrderListTable from './OrderListTable/OrderListTable';
     useEffect(() => {
       async function getUser() {
         try {
-          const response = await axios.get("http://localhost:5000/orderList");
+          const response = await axios.get("https://interior-design-service.herokuapp.com/orderList");
           setOrderList(response.data);
         } catch (error) {
           console.error(error);

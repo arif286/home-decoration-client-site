@@ -12,7 +12,7 @@ const Review = () => {
   const onSubmit = (data) => {
     console.log(data)
     axios
-      .post("http://localhost:5000/review", data)
+      .post("https://interior-design-service.herokuapp.com/review", data)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };

@@ -12,7 +12,7 @@ const MakeAdmin = () => {
   const onSubmit = async(data) => {
     console.log(data)
     try {
-      const res = await axios.post("http://localhost:5000/addAdmin");
+      const res = await axios.post("https://interior-design-service.herokuapp.com/addAdmin");
       console.log(res.data)
     } catch (error) {
       console.log(error)

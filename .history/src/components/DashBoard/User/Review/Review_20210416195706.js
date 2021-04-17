@@ -11,7 +11,7 @@ const Review = () => {
   } = useForm();
   const onSubmit = (data) => {
     console.log(data)
-    axios.post("http://localhost:5000/review")
+    axios.post("https://interior-design-service.herokuapp.com/review")
       .then(res => console.log(res))
     .catch(err=>console.log(err))
   };

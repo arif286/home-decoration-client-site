@@ -15,7 +15,7 @@ const Booking = () => {
   const [successOrder, setSuccessOrder] = useState(false);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/singleService/${userService.serviceId}`)
+      .get(`https://interior-design-service.herokuapp.com/singleService/${userService.serviceId}`)
       .then((res) => setBookService(res.data[0]))
       .catch((err) => console.log(err));
   }, [userService.serviceId]);
@@ -33,7 +33,7 @@ const Booking = () => {
     orderProcess.text = bookService.text;
     orderProcess.image = bookService.image;
     axios
-      .post("http://localhost:5000/processOrder", orderProcess)
+      .post("https://interior-design-service.herokuapp.com/processOrder", orderProcess)
       .then((res) => setSuccessOrder(res.data))
       .catch((err) => console.log(err));
   };

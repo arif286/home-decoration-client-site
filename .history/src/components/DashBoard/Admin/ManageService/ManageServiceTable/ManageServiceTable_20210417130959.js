@@ -7,7 +7,7 @@ const ManageServiceTable = ({ services }) => {
     const deleteIcon = <FontAwesomeIcon icon={faTrash} />;
 
     const handleDelate = (id) => {
-        axios.delete(`http://localhost:5000/deleteService/${id}`);
+        axios.delete(`https://interior-design-service.herokuapp.com/deleteService/${id}`);
     };
     return (
       <table className="table table-borderless">

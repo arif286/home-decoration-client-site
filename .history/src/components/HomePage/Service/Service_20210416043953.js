@@ -33,7 +33,7 @@ const interiorService = [
 const Service = () => {
   const [services, setServices] = useState(interiorService);
   useEffect(() => {
-    axios.get("http://localhost:5000/services")
+    axios.get("https://interior-design-service.herokuapp.com/services")
       .then(res => console.log(res.data))
     .catch(err=>console.log(err))
   }, []);

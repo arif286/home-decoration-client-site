@@ -9,7 +9,7 @@ const BookingList = () => {
         const token = sessionStorage.getItem("token");
         const decodedToken = jwt_decode(token);
         console.log(decodedToken)
-        axios.post("http://localhost:5000/orderList");
+        axios.post("https://interior-design-service.herokuapp.com/orderList");
     }, []);
     return (
       <div>

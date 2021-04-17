@@ -7,7 +7,7 @@ const Testimonials = () => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/setReview")
+      .get("https://interior-design-service.herokuapp.com/setReview")
       .then((res) => setReviews(res.data))
       .catch((err) => console.log(err));
   }, []);

@@ -11,7 +11,7 @@ const OrderListTable = ({ orderList }) => {
   const handleUpdate = (id) => {
       console.log(id);
        axios
-         .patch(`/http://localhost:5000/updateStatus/${id}`, updateService)
+         .patch(`/https://interior-design-service.herokuapp.com/updateStatus/${id}`, updateService)
          .then((res) => console.log(res.data))
          .catch((err) => console.log(err));
   };

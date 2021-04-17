@@ -11,7 +11,7 @@ const Booking = () => {
   const { id } = useParams();
   const [bookService, setBookService] = useState({});
   useEffect(() => {
-    axios.get(`http://localhost:5000/${id}`)
+    axios.get(`https://interior-design-service.herokuapp.com/${id}`)
       .then(res => console.log(res))
     .catch(err=>console.log(err))
   }, [id]);

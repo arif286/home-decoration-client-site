@@ -15,7 +15,7 @@ const Review = () => {
     const eventData = { ...data }
     eventData.image = imageURL;
     axios
-      .post("http://localhost:5000/review", eventData)
+      .post("https://interior-design-service.herokuapp.com/review", eventData)
       .then((res) => {
         console.log(res.data)
         e.target.reset();

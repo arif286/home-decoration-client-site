@@ -22,7 +22,7 @@ const AddService = () => {
     };
     eventData.image = await imageURL;
     try {
-      const response = await axios.post("http://localhost:5000/addService", {
+      const response = await axios.post("https://interior-design-service.herokuapp.com/addService", {
         headers: { "Content-Type": "application/json" },
         data: eventData,
       });

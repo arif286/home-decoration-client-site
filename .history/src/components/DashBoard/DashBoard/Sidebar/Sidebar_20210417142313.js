@@ -1,5 +1,5 @@
 import {
-  faGripHorizontal
+    faGripHorizontal
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
@@ -7,12 +7,12 @@ import jwt_decode from "jwt-decode";
 import React, { useEffect, useState } from 'react';
 import { Row } from "react-bootstrap";
 import {
-  BrowserRouter as Router,
+    BrowserRouter as Router,
 
 
-  NavLink,
-  Route,
-  Switch
+    NavLink,
+    Route,
+    Switch
 } from "react-router-dom";
 import AddService from '../../Admin/AddService/AddService';
 import MakeAdmin from "../../Admin/MakeAdmin/MakeAdmin";
@@ -63,7 +63,7 @@ const Sidebar = () => {
     const decodedToken = jwt_decode(token);
     const email = decodedToken.email
     console.log(email)
-    axios.post(`/http://localhost:5000/isAdmin`);
+    axios.post(`/https://interior-design-service.herokuapp.com/isAdmin`);
   }, []);
     return (
       <Router>

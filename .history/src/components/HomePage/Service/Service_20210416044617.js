@@ -7,7 +7,7 @@ const Service = () => {
   const [services, setServices] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:5000/services")
+      .get("https://interior-design-service.herokuapp.com/services")
       .then((res) => setServices(res.data))
       .catch((err) => console.log(err));
   }, []);

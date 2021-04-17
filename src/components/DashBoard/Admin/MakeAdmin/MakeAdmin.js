@@ -14,7 +14,7 @@ const MakeAdmin = () => {
     const admin = { ...data }
     admin.role = 'admin';
     try {
-      const res = await axios.post("http://localhost:5000/addAdmin",admin);
+      const res = await axios.post("https://interior-design-service.herokuapp.com/addAdmin",admin);
       console.log(res.data)
       e.target.reset();
     } catch (error) {
