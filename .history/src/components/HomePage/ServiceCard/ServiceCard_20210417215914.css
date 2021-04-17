@@ -1,0 +1,4 @@
+.service-card:hover {
+  box-shadow: 0px 5px 10px gray;
+  cursor: pointer;
+}

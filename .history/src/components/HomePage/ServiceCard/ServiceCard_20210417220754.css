@@ -1,0 +1,6 @@
+.service-card:hover {
+  box-shadow: 0px 5px 10px gray;
+  cursor: pointer;
+  transition: 0.7s;
+  transform: scale(1.1);
+}

@@ -1,0 +1,9 @@
+.header-link {
+  color: #272f3b;
+  padding: 12px;
+  font-weight: 500;
+}
+.header-link:hover {
+  text-decoration: none;
+  color: black;
+}
