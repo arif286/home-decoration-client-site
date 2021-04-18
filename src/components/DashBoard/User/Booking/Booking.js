@@ -4,7 +4,7 @@ import { Alert, Col, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { ServiceContext, UserContext } from "../../../../App";
 import creditCard from "../../../../home-decoration/Image_Icon/Icon/credit-card 1.png";
-import confirmation from '../../../../home-decoration/Image_Icon/Image/order.png';
+import confirmation from "../../../../home-decoration/Image_Icon/Image/order.png";
 import Payment from "../Payment/Payment";
 
 const Booking = () => {
@@ -16,28 +16,36 @@ const Booking = () => {
   const [successOrder, setSuccessOrder] = useState(false);
   useEffect(() => {
     axios
-      .get(`https://interior-design-service.herokuapp.com/singleService/${userService.serviceId}`)
+      .get(
+        `https://interior-design-service.herokuapp.com/singleService/${userService.serviceId}`
+      )
       .then((res) => setBookService(res.data[0]))
       .catch((err) => console.log(err));
   }, [userService.serviceId]);
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     setOrderData(data);
-    setPayment(true)
+    setPayment(true);
   };
-  const handlePayment = (id) => {
+  const handlePayment = async (id) => {
     const orderProcess = { ...orderData };
     orderProcess.date = new Date();
     orderProcess.paymentId = id;
     orderProcess.productId = bookService._id;
-    orderProcess.status = 'pending'
+    orderProcess.status = "pending";
     orderProcess.text = bookService.text;
     orderProcess.image = bookService.image;
-    axios
-      .post("https://interior-design-service.herokuapp.com/processOrder", orderProcess)
-      .then((res) => setSuccessOrder(res.data))
-      .catch((err) => console.log(err));
+    try {
+      const res = await axios.post(
+        "https://interior-design-service.herokuapp.com/processOrder",
+        orderProcess
+      );
+      setSuccessOrder(res.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
+
   return (
     <div>
       <h3 className="text-center">Booking</h3>
@@ -46,7 +54,7 @@ const Booking = () => {
         <Row>
           <Col md={8} lg={5}>
             <img style={{ width: "100%" }} src={confirmation} alt="" />
-            <Alert variant='success'>Your order place successfully!!</Alert>
+            <Alert variant="success">Your order place successfully!!</Alert>
           </Col>
         </Row>
       ) : (
@@ -73,9 +81,9 @@ const Booking = () => {
                 style={{ marginBottom: "20px" }}
                 className="form-control"
                 type="text"
-                defaultValue={bookService.title}
+                defaultValue={bookService.title || userService.name}
                 placeholder="Service Name"
-                {...register("serviceName")}
+                {...register("serviceName", { required: true })}
               />
             </form>
             <div>
