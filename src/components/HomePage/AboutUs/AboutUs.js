@@ -9,7 +9,7 @@ const checkBox = <FontAwesomeIcon icon={faCheckCircle} />;
 
 const AboutUs = () => {
   return (
-    <Container className="mt-5">
+    <Container id="#about" className="mt-5">
       <h1 className="text-center mb-4">About Us</h1>
       <Row className="row-cols-1 row-cols-md-2">
         <Col className="pb-4">

@@ -22,12 +22,6 @@ const NavBar = () => {
               <NavLink className="header-link" to="/home">
                 Home
               </NavLink>
-              <NavLink className="header-link" to="#link">
-                About us
-              </NavLink>
-              <NavLink className="header-link" to="#link">
-                Projects
-              </NavLink>
               <NavLink className="header-link" to="/dashBoard">
                 Admin
               </NavLink>

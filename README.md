@@ -2,8 +2,8 @@
 
 <br />
 
-I'm [Ariful Islam](https://pogrammer-arif.web.app/), a dedicated Full-stack web developer. And also a leaner in [Programming Hero](https://www.programming-hero.com/)
-. Created a [Interior Design](https://interior-design-service.web.app/) website that contains home decoration service for customers.
+I'm [Ariful Islam](https://pogrammer-arif.web.app/), a dedicated Full-stack JavaScript Developer. And also a leaner.
+.I have Created a [Interior Design](https://interior-design-service.web.app/) website that contains home decoration service for customers.
 
 ### About projects and features:
 
@@ -27,6 +27,7 @@ I'm [Ariful Islam](https://pogrammer-arif.web.app/), a dedicated Full-stack web 
 **React form hock**,
 **React bootstrap**,
 **bootstrap**
+**React bootstrap**
 
   <img align="right" alt="GIF" src="https://analyticsindiamag.com/wp-content/uploads/2018/12/developer-dribbble.gif" width="500" height="320" />
 

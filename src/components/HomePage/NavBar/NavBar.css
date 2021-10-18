@@ -1,7 +1,8 @@
 .header-link {
   color: #272f3b;
   padding: 12px;
-  font-weight: 500;
+  font-weight: 700;
+  font-size: 18px;
 }
 .header-link:hover {
   text-decoration: none;
